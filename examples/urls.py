@@ -15,8 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework.routers import DefaultRouter
+from myapp import views
+# creating router
+router=DefaultRouter()
+
+# register StudentViewSet with router
+router.register('student_viewset_api',views.StudentViewSet,basename='student')
+
+# register StudentModelViewSet with router
+router.register('student_modelviewset_api',views.StudentModelViewSet,basename='student')
+
+# register StudentModelViewSet with router
+router.register('student_read_only_modelviewset_api',views.StudentReadOnlyModelViewSet,basename='student')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('myapp.urls'))
+    path('',include('myapp.urls')),
+    path('',include(router.urls)),
 ]

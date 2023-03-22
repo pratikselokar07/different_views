@@ -11,4 +11,12 @@ urlpatterns = [
     path('thanks/',views.Thanks.as_view(),name='thanks'),
     path('update_view/<int:pk>',views.StudentUpdateView.as_view(),name='update_view'),
     path('delete_view/<int:pk>',views.StudentDeleteView.as_view(),name='delete_view'),
+
+    path('api_view/',views.StudentApiView.as_view(),name='api_view'),
+    path('api_view/<int:pk>/',views.StudentApiView.as_view(),name='api_view'),
+    
+    path('list_create_view/',views.StudentListCreateView.as_view(),name='list_create_view'),
+    path('retrive_update_view/<int:pk>/',views.StudentRetrieveUpdateView.as_view(),name='retrive_update_view'),
+    path('retrive_destroy_view/<int:pk>/',views.StudentRetrieveDestroyView.as_view(),name='retrive_destroy_view'),
+
 ]
