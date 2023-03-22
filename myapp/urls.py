@@ -3,6 +3,8 @@ from .import views
 
 
 urlpatterns = [
+    path('student_list/',views.StudentListView.as_view(),name='student_list'),
+    
     path('show/',views.StudentListView.as_view(),name='show'),
     path('index/',views.IndexTemplateView.as_view(extra_context={'email':'Pratik002@gmail.com'}),name='index'),
     path('detail/<int:id>',views.StudentDetailView.as_view(),name='detail'),
@@ -14,7 +16,7 @@ urlpatterns = [
 
     path('api_view/',views.StudentApiView.as_view(),name='api_view'),
     path('api_view/<int:pk>/',views.StudentApiView.as_view(),name='api_view'),
-    
+
     path('list_create_view/',views.StudentListCreateView.as_view(),name='list_create_view'),
     path('retrive_update_view/<int:pk>/',views.StudentRetrieveUpdateView.as_view(),name='retrive_update_view'),
     path('retrive_destroy_view/<int:pk>/',views.StudentRetrieveDestroyView.as_view(),name='retrive_destroy_view'),

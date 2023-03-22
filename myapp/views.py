@@ -1,3 +1,4 @@
+from django.views import View
 from django.views.generic.list import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
@@ -12,6 +13,11 @@ from rest_framework.generics import ListCreateAPIView,RetrieveAPIView,RetrieveUp
 from myapp.forms import StudentForm
 
 from myapp.models import Student
+
+class StudentView(View):
+    def get(self, request):
+        students=Student.objects.all()
+        return render(request,'student_list.html',{'students':students})
 
 class StudentListView(ListView):
     model = Student
